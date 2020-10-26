@@ -8,38 +8,39 @@ using System.Windows.Forms;
 
 namespace COE182P_T_Practical_07
 {
-    public partial class StallForm : Form
+    public partial class FoodTypeForm : Form
     {
         public int state;
         public SelectionForm varSelectionForm;
-        public StallForm()
+        public FoodTypeForm()
         {
             InitializeComponent();
         }
 
-        private void StallForm_Load(object sender, EventArgs e)
+        private void FoodTypeForm_Load(object sender, EventArgs e)
         {
-            switch(state)
+            switch (state)
             {
                 case 0:
                     textBoxName.Enabled = true;
                     textBoxDescription.Enabled = true;
-                    buttonStall.Text = "Add Stall";
+                    buttonType.Text = "Add Food Type";
                     break;
                 case 1:
                     comboBoxID.Enabled = true;
-                    buttonStall.Text = "Update Stall";
+                    buttonType.Text = "Update Food Type";
                     break;
                 case 2:
                     comboBoxID.Enabled = true;
-                    buttonStall.Text = "Delete Stall";
+                    buttonType.Text = "Delete Food Type";
                     break;
                 default:
                     Error("Unkown Error");
                     break;
             }
         }
-        private void StallForm_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void FoodTypeForm_SelectionIndexedChanged(object sender, EventArgs e)
         {
             switch (state)
             {
@@ -58,13 +59,13 @@ namespace COE182P_T_Practical_07
                     break;
             }
         }
-
-        private void StallForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void Error(string ex)
         {
-            varSelectionForm.Close();
+            MessageBox.Show("Error Code: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.Close();
         }
 
-        private void buttonStall_Click(object sender, EventArgs e)
+        private void buttonType_Click(object sender, EventArgs e)
         {
             switch (state)
             {
@@ -78,7 +79,7 @@ namespace COE182P_T_Practical_07
                         try
                         {
                             //insert stall add procedure
-                            MessageBox.Show("Stall with name: " + textBoxName.Text + " has been successfully added to the database.", "New Stall Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Food Type with name: " + textBoxName.Text + " has been successfully added to the database.", "New Food Type Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -89,10 +90,10 @@ namespace COE182P_T_Practical_07
                 case 1:
                     try
                     {
-                        if(textBoxName.Text != "")
+                        if (textBoxName.Text != "")
                         {
                             //insert stall update procedure
-                            MessageBox.Show("Stall with ID: " + comboBoxID.Text + " has been successfully updated.", "Stall Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Food Type with ID: " + comboBoxID.Text + " has been successfully updated.", "Food Type Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -110,7 +111,7 @@ namespace COE182P_T_Practical_07
                         if (textBoxName.Text != "")
                         {
                             //insert stall delete procedure
-                            MessageBox.Show("Stall with ID: " + comboBoxID.Text + " has been successfully deleted.", "Stall Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Food Type with ID: " + comboBoxID.Text + " has been successfully deleted.", "Food Type Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -127,10 +128,10 @@ namespace COE182P_T_Practical_07
                     break;
             }
         }
-        private void Error(string ex)
+
+        private void FoodTypeForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show("Error Code: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.Close();
+            varSelectionForm.Close();
         }
     }
 }

@@ -71,7 +71,7 @@
             this.buttonCategory.Name = "buttonCategory";
             this.buttonCategory.Size = new System.Drawing.Size(200, 70);
             this.buttonCategory.TabIndex = 0;
-            this.buttonCategory.Text = "ADD CATEGORY";
+            this.buttonCategory.Text = "ADD FOOD TYPE";
             this.buttonCategory.UseVisualStyleBackColor = false;
             this.buttonCategory.Click += new System.EventHandler(this.buttonCategory_Click);
             // 

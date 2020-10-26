@@ -8,6 +8,8 @@ namespace COE182P_T_Practical_07
     {
         public int state;
         private StallForm SF = new StallForm();
+        private FoodTypeForm FTF = new FoodTypeForm();
+        private ItemForm IF = new ItemForm();
         public SelectionForm()
         {
             InitializeComponent();
@@ -15,16 +17,18 @@ namespace COE182P_T_Practical_07
         private void SelectionForm_Load(object sender, EventArgs e)
         {
             SF.state = state;
+            FTF.state = state;
+            IF.state = state;
             switch(state)
             {
                 case 1:
                     buttonItem.Text = "Update Item";
-                    buttonCategory.Text = "Update Category";
+                    buttonCategory.Text = "Update Food Type";
                     buttonStall.Text = "Update Stall";
                     break;
                 case 2:
                     buttonItem.Text = "Delete Item";
-                    buttonCategory.Text = "Delete Category";
+                    buttonCategory.Text = "Delete Food Type";
                     buttonStall.Text = "Delete Stall";
                     break;
             }
@@ -33,7 +37,7 @@ namespace COE182P_T_Practical_07
         {
             try
             {
-                SF.varStallForm = this;
+                SF.varSelectionForm = this;
                 this.Hide();
                 SF.ShowDialog();
             }
@@ -47,7 +51,9 @@ namespace COE182P_T_Practical_07
         {
             try
             {
-
+                FTF.varSelectionForm = this;
+                this.Hide();
+                FTF.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -59,7 +65,9 @@ namespace COE182P_T_Practical_07
         {
             try
             {
-
+                IF.varSelectionForm = this;
+                this.Hide();
+                IF.ShowDialog();
             }
             catch (Exception ex)
             {
