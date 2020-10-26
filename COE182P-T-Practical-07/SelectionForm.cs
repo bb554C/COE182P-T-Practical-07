@@ -7,76 +7,69 @@ namespace COE182P_T_Practical_07
     public partial class SelectionForm : Form
     {
         public int state;
+        private StallForm SF = new StallForm();
         public SelectionForm()
         {
             InitializeComponent();
         }
         private void SelectionForm_Load(object sender, EventArgs e)
         {
-            if (state == 1)
+            SF.state = state;
+            switch(state)
             {
-                buttonItem.Text = "Update Item";
-                buttonCategory.Text = "Update Category";
-                buttonStall.Text = "Update Stall";
+                case 1:
+                    buttonItem.Text = "Update Item";
+                    buttonCategory.Text = "Update Category";
+                    buttonStall.Text = "Update Stall";
+                    break;
+                case 2:
+                    buttonItem.Text = "Delete Item";
+                    buttonCategory.Text = "Delete Category";
+                    buttonStall.Text = "Delete Stall";
+                    break;
             }
-            else if(state == 2)
-            {
-                buttonItem.Text = "Delete Item";
-                buttonCategory.Text = "Delete Category";
-                buttonStall.Text = "Delete Stall";
-            }
-        }
-        private void Error()
-        {
-            MessageBox.Show("An unkown error has occured.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.Close();
         }
         private void buttonStall_Click(object sender, EventArgs e)
         {
-            switch(state)
+            try
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    Error();
-                    break;
+                SF.varStallForm = this;
+                this.Hide();
+                SF.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                Error(ex.ToString());
             }
         }
 
         private void buttonCategory_Click(object sender, EventArgs e)
         {
-            switch (state)
+            try
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    Error();
-                    break;
+
+            }
+            catch (Exception ex)
+            {
+                Error(ex.ToString());
             }
         }
 
         private void buttonItem_Click(object sender, EventArgs e)
         {
-            switch (state)
+            try
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    Error();
-                    break;
+
             }
+            catch (Exception ex)
+            {
+                Error(ex.ToString());
+            }
+        }
+        private void Error(string ex)
+        {
+            MessageBox.Show("Error Code: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.Close();
         }
     }
 }

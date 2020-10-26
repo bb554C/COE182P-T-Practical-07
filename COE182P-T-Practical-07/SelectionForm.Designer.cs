@@ -81,7 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SeaGreen;
-            this.ClientSize = new System.Drawing.Size(232, 278);
+            this.ClientSize = new System.Drawing.Size(234, 281);
             this.Controls.Add(this.buttonCategory);
             this.Controls.Add(this.buttonItem);
             this.Controls.Add(this.buttonStall);
