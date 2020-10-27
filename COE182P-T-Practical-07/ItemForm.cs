@@ -19,12 +19,41 @@ namespace COE182P_T_Practical_07
 
         private void ItemForm_Load(object sender, EventArgs e)
         {
-
+            switch(state)
+            {
+                case 0:
+                    comboBoxStallName.Enabled = true;
+                    textBoxFoodName.Enabled = true;
+                    comboBoxFoodType.Enabled = true;
+                    textBoxFoodDescription.Enabled = true;
+                    textBoxPrice.Enabled = true;
+                    buttonItem.Text = "Add Item";
+                    break;
+                case 1:
+                    buttonItem.Text = "Update Item";
+                    break;
+                case 2:
+                    buttonItem.Text = "Delete Item";
+                    break;
+                default:
+                    Error("Unkown Error");
+                    break;
+            }
         }
 
         private void ItemForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             varSelectionForm.Close();
+        }
+        private void Error(string ex)
+        {
+            MessageBox.Show("Error Code: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.Close();
+        }
+
+        private void buttonItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

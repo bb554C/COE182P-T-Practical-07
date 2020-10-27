@@ -21,14 +21,19 @@ namespace COE182P_T_Practical_07
             IF.state = state;
             switch(state)
             {
+                case 0:
+                    buttonItem.Text = "Add Item";
+                    buttonFoodType.Text = "Add Food Type";
+                    buttonStall.Text = "Add Stall";
+                    break;
                 case 1:
                     buttonItem.Text = "Update Item";
-                    buttonCategory.Text = "Update Food Type";
+                    buttonFoodType.Text = "Update Food Type";
                     buttonStall.Text = "Update Stall";
                     break;
                 case 2:
                     buttonItem.Text = "Delete Item";
-                    buttonCategory.Text = "Delete Food Type";
+                    buttonFoodType.Text = "Delete Food Type";
                     buttonStall.Text = "Delete Stall";
                     break;
             }

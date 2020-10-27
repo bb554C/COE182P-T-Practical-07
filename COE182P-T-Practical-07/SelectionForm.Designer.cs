@@ -30,7 +30,7 @@
         {
             this.buttonStall = new System.Windows.Forms.Button();
             this.buttonItem = new System.Windows.Forms.Button();
-            this.buttonCategory = new System.Windows.Forms.Button();
+            this.buttonFoodType = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonStall
@@ -43,7 +43,7 @@
             this.buttonStall.Name = "buttonStall";
             this.buttonStall.Size = new System.Drawing.Size(200, 70);
             this.buttonStall.TabIndex = 0;
-            this.buttonStall.Text = "ADD STALL";
+            this.buttonStall.Text = "STALL";
             this.buttonStall.UseVisualStyleBackColor = false;
             this.buttonStall.Click += new System.EventHandler(this.buttonStall_Click);
             // 
@@ -57,23 +57,23 @@
             this.buttonItem.Name = "buttonItem";
             this.buttonItem.Size = new System.Drawing.Size(200, 70);
             this.buttonItem.TabIndex = 0;
-            this.buttonItem.Text = "ADD ITEM";
+            this.buttonItem.Text = "ITEM";
             this.buttonItem.UseVisualStyleBackColor = false;
             this.buttonItem.Click += new System.EventHandler(this.buttonItem_Click);
             // 
-            // buttonCategory
+            // buttonFoodType
             // 
-            this.buttonCategory.BackColor = System.Drawing.Color.Lime;
-            this.buttonCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCategory.Location = new System.Drawing.Point(16, 104);
-            this.buttonCategory.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonCategory.Name = "buttonCategory";
-            this.buttonCategory.Size = new System.Drawing.Size(200, 70);
-            this.buttonCategory.TabIndex = 0;
-            this.buttonCategory.Text = "ADD FOOD TYPE";
-            this.buttonCategory.UseVisualStyleBackColor = false;
-            this.buttonCategory.Click += new System.EventHandler(this.buttonCategory_Click);
+            this.buttonFoodType.BackColor = System.Drawing.Color.Lime;
+            this.buttonFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFoodType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonFoodType.Location = new System.Drawing.Point(16, 104);
+            this.buttonFoodType.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonFoodType.Name = "buttonFoodType";
+            this.buttonFoodType.Size = new System.Drawing.Size(200, 70);
+            this.buttonFoodType.TabIndex = 0;
+            this.buttonFoodType.Text = "FOOD TYPE";
+            this.buttonFoodType.UseVisualStyleBackColor = false;
+            this.buttonFoodType.Click += new System.EventHandler(this.buttonCategory_Click);
             // 
             // SelectionForm
             // 
@@ -82,7 +82,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(234, 281);
-            this.Controls.Add(this.buttonCategory);
+            this.Controls.Add(this.buttonFoodType);
             this.Controls.Add(this.buttonItem);
             this.Controls.Add(this.buttonStall);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -102,6 +102,6 @@
 
         private System.Windows.Forms.Button buttonStall;
         private System.Windows.Forms.Button buttonItem;
-        private System.Windows.Forms.Button buttonCategory;
+        private System.Windows.Forms.Button buttonFoodType;
     }
 }
