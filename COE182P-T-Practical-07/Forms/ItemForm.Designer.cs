@@ -247,7 +247,6 @@
         private System.Windows.Forms.ComboBox comboBoxFoodType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxFoodDescription;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button buttonItem;
         private System.Windows.Forms.TextBox textBoxPrice;
     }

@@ -8,64 +8,71 @@ using System.Windows.Forms;
 
 namespace COE182P_T_Practical_07
 {
-    public partial class StallForm : Form
+    public partial class FoodTypeForm : Form
     {
         public int state;
         public SelectionForm varSelectionForm;
-        public StallForm()
+        public List<TypeList> TL;
+        public FoodTypeForm()
         {
             InitializeComponent();
         }
 
-        private void StallForm_Load(object sender, EventArgs e)
+        private void FoodTypeForm_Load(object sender, EventArgs e)
         {
-            switch(state)
+            switch (state)
             {
                 case 0:
                     textBoxName.Enabled = true;
                     textBoxDescription.Enabled = true;
-                    buttonStall.Text = "Add Stall";
+                    buttonType.Text = "Add Food Type";
                     break;
                 case 1:
+                    TL = SQLServerConnection.GetFoodTypeList();
+                    foreach (TypeList tempList in TL)
+                    {
+                        comboBoxID.Items.Add(tempList.FoodTypeID);
+                    }
                     comboBoxID.Enabled = true;
-                    buttonStall.Text = "Update Stall";
+                    buttonType.Text = "Update Food Type";
                     break;
                 case 2:
+                    TL = SQLServerConnection.GetFoodTypeList();
+                    foreach (TypeList tempList in TL)
+                    {
+                        comboBoxID.Items.Add(tempList.FoodTypeID);
+                    }
                     comboBoxID.Enabled = true;
-                    buttonStall.Text = "Delete Stall";
+                    buttonType.Text = "Delete Food Type";
                     break;
                 default:
                     Error("Unkown Error");
                     break;
             }
         }
-        private void StallForm_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void FoodTypeForm_SelectionIndexedChanged(object sender, EventArgs e)
         {
             switch (state)
             {
                 case 1:
-                    //insert get stall name and description procedure
-                    //textBoxName.Text = Name;
-                    //textBoxDescription.Text = Description;
+                    textBoxName.Text = TL[comboBoxID.SelectedIndex].FoodType;
+                    textBoxDescription.Text = TL[comboBoxID.SelectedIndex].TypeDescription;
                     textBoxName.Enabled = true;
                     textBoxDescription.Enabled = true;
                     break;
                 case 2:
-                    //insert get stall name and description procedure
+                    textBoxName.Text = TL[comboBoxID.SelectedIndex].FoodType;
+                    textBoxDescription.Text = TL[comboBoxID.SelectedIndex].TypeDescription;
                     break;
                 default:
                     Error("Unkown Error");
                     break;
             }
         }
-
-        private void StallForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void buttonType_Click(object sender, EventArgs e)
         {
-            varSelectionForm.Close();
-        }
-
-        private void buttonStall_Click(object sender, EventArgs e)
-        {
+            SQLServerConnection.FTF = this;
             switch (state)
             {
                 case 0:
@@ -77,27 +84,27 @@ namespace COE182P_T_Practical_07
                     {
                         try
                         {
-                            //insert stall add procedure
-                            MessageBox.Show("Stall with name: " + textBoxName.Text + " has been successfully added to the database.", "New Stall Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            SQLServerConnection.AddFoodType(textBoxName.Text, textBoxDescription.Text);
                         }
                         catch (Exception ex)
                         {
                             Error(ex.ToString());
                         }
+                        MessageBox.Show("Food Type with name: " + textBoxName.Text + " has been successfully added to the database.", "New Food Type Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     break;
                 case 1:
                     try
                     {
-                        if(textBoxName.Text != "")
+                        if (textBoxName.Text != "")
                         {
-                            //insert stall update procedure
-                            MessageBox.Show("Stall with ID: " + comboBoxID.Text + " has been successfully updated.", "Stall Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            SQLServerConnection.UpdateFoodType(Convert.ToInt32(comboBoxID.Text), textBoxName.Text, textBoxDescription.Text);
                         }
                         else
                         {
                             Error("No selected item to update");
                         }
+                        MessageBox.Show("Food Type with ID: " + comboBoxID.Text + " has been successfully updated.", "Food Type Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -109,8 +116,7 @@ namespace COE182P_T_Practical_07
                     {
                         if (textBoxName.Text != "")
                         {
-                            //insert stall delete procedure
-                            MessageBox.Show("Stall with ID: " + comboBoxID.Text + " has been successfully deleted.", "Stall Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            SQLServerConnection.DeleteFoodType(Convert.ToInt32(comboBoxID.Text));
                         }
                         else
                         {
@@ -121,11 +127,18 @@ namespace COE182P_T_Practical_07
                     {
                         Error(ex.ToString());
                     }
+                    MessageBox.Show("Food Type with ID: " + comboBoxID.Text + " has been successfully deleted.", "Food Type Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 default:
                     Error("Unkown Error");
                     break;
             }
+            this.Close();
+        }
+
+        private void FoodTypeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            varSelectionForm.Close();
         }
         private void Error(string ex)
         {
