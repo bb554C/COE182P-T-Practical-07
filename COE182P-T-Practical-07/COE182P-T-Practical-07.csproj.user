@@ -7,13 +7,13 @@
     <Compile Update="ItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SelectionForm.cs">
+    <Compile Update="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MainMenuForm.cs">
+    <Compile Update="SelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="StallForm.cs">
