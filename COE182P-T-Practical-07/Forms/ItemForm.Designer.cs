@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelFoodID = new System.Windows.Forms.Label();
             this.comboBoxFoodID = new System.Windows.Forms.ComboBox();
             this.comboBoxStallName = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelStallName = new System.Windows.Forms.Label();
+            this.labelFoodName = new System.Windows.Forms.Label();
+            this.labelFoodType = new System.Windows.Forms.Label();
+            this.labelFoodDescription = new System.Windows.Forms.Label();
+            this.labelPrice = new System.Windows.Forms.Label();
             this.textBoxFoodName = new System.Windows.Forms.TextBox();
             this.labelStallID = new System.Windows.Forms.Label();
             this.comboBoxFoodType = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelFoodTypeID = new System.Windows.Forms.Label();
             this.textBoxFoodDescription = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.buttonItem = new System.Windows.Forms.Button();
+            this.textBoxFoodTypeID = new System.Windows.Forms.TextBox();
+            this.textBoxStallID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // labelFoodID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(86, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Food ID:";
+            this.labelFoodID.AutoSize = true;
+            this.labelFoodID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFoodID.Location = new System.Drawing.Point(86, 20);
+            this.labelFoodID.Name = "labelFoodID";
+            this.labelFoodID.Size = new System.Drawing.Size(78, 23);
+            this.labelFoodID.TabIndex = 0;
+            this.labelFoodID.Text = "Food ID:";
             // 
             // comboBoxFoodID
             // 
@@ -64,6 +66,7 @@
             this.comboBoxFoodID.Name = "comboBoxFoodID";
             this.comboBoxFoodID.Size = new System.Drawing.Size(300, 31);
             this.comboBoxFoodID.TabIndex = 1;
+            this.comboBoxFoodID.SelectedIndexChanged += new System.EventHandler(this.comboBoxFoodID_SelectedIndexChanged);
             // 
             // comboBoxStallName
             // 
@@ -74,56 +77,57 @@
             this.comboBoxStallName.Name = "comboBoxStallName";
             this.comboBoxStallName.Size = new System.Drawing.Size(300, 31);
             this.comboBoxStallName.TabIndex = 1;
+            this.comboBoxStallName.SelectedIndexChanged += new System.EventHandler(this.comboBoxStallName_SelectedIndexChanged);
             // 
-            // label2
+            // labelStallName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(61, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Stall Name:";
+            this.labelStallName.AutoSize = true;
+            this.labelStallName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelStallName.Location = new System.Drawing.Point(61, 72);
+            this.labelStallName.Name = "labelStallName";
+            this.labelStallName.Size = new System.Drawing.Size(103, 23);
+            this.labelStallName.TabIndex = 0;
+            this.labelStallName.Text = "Stall Name:";
             // 
-            // label3
+            // labelFoodName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(57, 123);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Food Name:";
+            this.labelFoodName.AutoSize = true;
+            this.labelFoodName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFoodName.Location = new System.Drawing.Point(57, 123);
+            this.labelFoodName.Name = "labelFoodName";
+            this.labelFoodName.Size = new System.Drawing.Size(107, 23);
+            this.labelFoodName.TabIndex = 0;
+            this.labelFoodName.Text = "Food Name:";
             // 
-            // label4
+            // labelFoodType
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(66, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Food Type:";
+            this.labelFoodType.AutoSize = true;
+            this.labelFoodType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFoodType.Location = new System.Drawing.Point(66, 175);
+            this.labelFoodType.Name = "labelFoodType";
+            this.labelFoodType.Size = new System.Drawing.Size(98, 23);
+            this.labelFoodType.TabIndex = 0;
+            this.labelFoodType.Text = "Food Type:";
             // 
-            // label5
+            // labelFoodDescription
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(12, 271);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 23);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Food Description:";
+            this.labelFoodDescription.AutoSize = true;
+            this.labelFoodDescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFoodDescription.Location = new System.Drawing.Point(12, 271);
+            this.labelFoodDescription.Name = "labelFoodDescription";
+            this.labelFoodDescription.Size = new System.Drawing.Size(152, 23);
+            this.labelFoodDescription.TabIndex = 0;
+            this.labelFoodDescription.Text = "Food Description:";
             // 
-            // label6
+            // labelPrice
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(110, 322);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 23);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Price:";
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelPrice.Location = new System.Drawing.Point(110, 322);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(54, 23);
+            this.labelPrice.TabIndex = 0;
+            this.labelPrice.Text = "Price:";
             // 
             // textBoxFoodName
             // 
@@ -153,16 +157,17 @@
             this.comboBoxFoodType.Name = "comboBoxFoodType";
             this.comboBoxFoodType.Size = new System.Drawing.Size(300, 31);
             this.comboBoxFoodType.TabIndex = 1;
+            this.comboBoxFoodType.SelectedIndexChanged += new System.EventHandler(this.comboBoxFoodType_SelectedIndexChanged);
             // 
-            // label8
+            // labelFoodTypeID
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(476, 175);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 23);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "FoodTypeID:";
+            this.labelFoodTypeID.AutoSize = true;
+            this.labelFoodTypeID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelFoodTypeID.Location = new System.Drawing.Point(476, 175);
+            this.labelFoodTypeID.Name = "labelFoodTypeID";
+            this.labelFoodTypeID.Size = new System.Drawing.Size(104, 23);
+            this.labelFoodTypeID.TabIndex = 0;
+            this.labelFoodTypeID.Text = "FoodTypeID:";
             // 
             // textBoxFoodDescription
             // 
@@ -197,27 +202,45 @@
             this.buttonItem.UseVisualStyleBackColor = false;
             this.buttonItem.Click += new System.EventHandler(this.buttonItem_Click);
             // 
+            // textBoxFoodTypeID
+            // 
+            this.textBoxFoodTypeID.Enabled = false;
+            this.textBoxFoodTypeID.Location = new System.Drawing.Point(586, 171);
+            this.textBoxFoodTypeID.Name = "textBoxFoodTypeID";
+            this.textBoxFoodTypeID.Size = new System.Drawing.Size(40, 27);
+            this.textBoxFoodTypeID.TabIndex = 3;
+            // 
+            // textBoxStallID
+            // 
+            this.textBoxStallID.Enabled = false;
+            this.textBoxStallID.Location = new System.Drawing.Point(540, 68);
+            this.textBoxStallID.Name = "textBoxStallID";
+            this.textBoxStallID.Size = new System.Drawing.Size(40, 27);
+            this.textBoxStallID.TabIndex = 3;
+            // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(632, 453);
+            this.Controls.Add(this.textBoxStallID);
+            this.Controls.Add(this.textBoxFoodTypeID);
             this.Controls.Add(this.buttonItem);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxFoodDescription);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelFoodTypeID);
             this.Controls.Add(this.comboBoxFoodType);
             this.Controls.Add(this.labelStallID);
             this.Controls.Add(this.textBoxFoodName);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelPrice);
+            this.Controls.Add(this.labelFoodDescription);
+            this.Controls.Add(this.labelFoodType);
+            this.Controls.Add(this.labelFoodName);
+            this.Controls.Add(this.labelStallName);
             this.Controls.Add(this.comboBoxStallName);
             this.Controls.Add(this.comboBoxFoodID);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFoodID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -234,20 +257,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelFoodID;
         private System.Windows.Forms.ComboBox comboBoxFoodID;
         private System.Windows.Forms.ComboBox comboBoxStallName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelStallName;
+        private System.Windows.Forms.Label labelFoodName;
+        private System.Windows.Forms.Label labelFoodType;
+        private System.Windows.Forms.Label labelFoodDescription;
+        private System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.TextBox textBoxFoodName;
         private System.Windows.Forms.Label labelStallID;
         private System.Windows.Forms.ComboBox comboBoxFoodType;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelFoodTypeID;
         private System.Windows.Forms.TextBox textBoxFoodDescription;
         private System.Windows.Forms.Button buttonItem;
         private System.Windows.Forms.TextBox textBoxPrice;
+        private System.Windows.Forms.TextBox textBoxFoodTypeID;
+        private System.Windows.Forms.TextBox textBoxStallID;
     }
 }

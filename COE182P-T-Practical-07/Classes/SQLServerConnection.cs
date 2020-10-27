@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COE182P_T_Practical_07.Classes;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -134,6 +135,48 @@ namespace COE182P_T_Practical_07
             return TL;
         }
 
+        public static void AddItem(int StallID, int FoodTypeID, string FoodName, string FoodDescription, decimal FoodPrice)
+        {
+            try
+            {
+                Item.AddItem(SQLConnection(), StallID, FoodTypeID, FoodName, FoodDescription, FoodPrice);
+            }
+            catch (Exception ex)
+            {
+                Error(ex.ToString());
+                SF.Close();
+            }
+        }
+        public static void UpdateItem(int FoodID, int StallID, int FoodTypeID, string FoodName, string FoodDescription, decimal FoodPrice)
+        {
+            Item.UpdateItem(SQLConnection(), FoodID, StallID, FoodTypeID, FoodName, FoodDescription, FoodPrice);
+        }
+        public static void DeleteItem(int FoodID)
+        {
+            try
+            {
+                Item.DeleteItem(SQLConnection(), FoodID);
+            }
+            catch (Exception ex)
+            {
+                Error(ex.ToString());
+                SF.Close();
+            }
+        }
+        public static List<ItemList> GetItemList()
+        {
+            List<ItemList> TL = new List<ItemList>();
+            try
+            {
+                TL = Item.GetItemList(SQLConnection());
+            }
+            catch (Exception ex)
+            {
+                Error(ex.ToString());
+                SF.Close();
+            }
+            return TL;
+        }
 
         private static void Error(string ex)
         {

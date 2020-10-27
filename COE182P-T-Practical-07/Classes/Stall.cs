@@ -38,7 +38,7 @@ namespace COE182P_T_Practical_07
         {
             using (SqlCommand command = new SqlCommand("DELETE FROM dbo.CanteenStalls" + " WHERE StallID = @StallID", SQLconn))
             {
-                command.Parameters.Add("StallID", SqlDbType.Int, 200).Value = StallID;
+                command.Parameters.Add("StallID", SqlDbType.Int).Value = StallID;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
