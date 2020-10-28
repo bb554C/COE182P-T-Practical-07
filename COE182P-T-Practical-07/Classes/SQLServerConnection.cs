@@ -27,6 +27,13 @@ namespace COE182P_T_Practical_07
             }
             return connection;
         }
+        public static void CloseSQLConnection(SqlConnection SQLconn)
+        {
+            if(SQLconn != null)
+            {
+                SQLconn.Close();
+            }
+        }
         public static void AddStall(string StallName, string StallDescription)
         {
             try

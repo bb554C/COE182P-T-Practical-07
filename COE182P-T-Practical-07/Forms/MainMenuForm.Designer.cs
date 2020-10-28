@@ -37,7 +37,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -146,16 +145,9 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.Size = new System.Drawing.Size(826, 599);
+            this.dataGridView.Size = new System.Drawing.Size(826, 630);
             this.dataGridView.TabIndex = 4;
             this.dataGridView.Text = "dataGridView1";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 684);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(982, 25);
-            this.progressBar1.TabIndex = 5;
             // 
             // MainMenuForm
             // 
@@ -164,7 +156,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1006, 721);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -195,8 +186,7 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        public System.Windows.Forms.DataGridView dataGridView;
     }
 }
 

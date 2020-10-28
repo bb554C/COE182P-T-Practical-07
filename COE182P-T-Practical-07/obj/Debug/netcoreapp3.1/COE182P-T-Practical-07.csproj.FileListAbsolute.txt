@@ -26,3 +26,4 @@ C:\Users\BAIRD\Documents\GitHub\COE182P-T-Practical-07\COE182P-T-Practical-07\ob
 C:\Users\BAIRD\Documents\GitHub\COE182P-T-Practical-07\COE182P-T-Practical-07\obj\Debug\netcoreapp3.1\COE182P-T-Practical-07.dll
 C:\Users\BAIRD\Documents\GitHub\COE182P-T-Practical-07\COE182P-T-Practical-07\obj\Debug\netcoreapp3.1\COE182P-T-Practical-07.pdb
 C:\Users\BAIRD\Documents\GitHub\COE182P-T-Practical-07\COE182P-T-Practical-07\obj\Debug\netcoreapp3.1\COE182P-T-Practical-07.genruntimeconfig.cache
+C:\Users\BAIRD\Documents\GitHub\COE182P-T-Practical-07\COE182P-T-Practical-07\obj\Debug\netcoreapp3.1\COE182P-T-Practical-07.csprojAssemblyReference.cache

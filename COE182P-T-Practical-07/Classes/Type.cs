@@ -10,42 +10,46 @@ namespace COE182P_T_Practical_07
     {
         public static void AddType(SqlConnection SQLconn, string FoodType, string TypeDescription)
         {
-            using (SqlCommand command = new SqlCommand("INSERT INTO dbo.FoodMenuType (FoodType, TypeDescription)" + " VALUES (@TypeName, @TypeDescription)", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.AddNewFoodType", SQLconn))
             {
-                command.Parameters.Add("FoodType", SqlDbType.VarChar, 100).Value = FoodType;
-                command.Parameters.Add("TypeDescription", SqlDbType.VarChar, 200).Value = TypeDescription;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@TypeFood", SqlDbType.VarChar, 100).Value = FoodType;
+                command.Parameters.Add("@DescType", SqlDbType.VarChar, 200).Value = TypeDescription;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
         }
         public static void UpdateType(SqlConnection SQLconn, int FoodTypeID, string FoodType, string TypeDescription)
         {
-            using (SqlCommand command = new SqlCommand("UPDATE dbo.FoodMenuType"
-                + " SET FoodType = @FoodType,"
-                + " TypeDescription = @TypeDescription"
-                + " WHERE FoodTypeID = @FoodTypeID", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.UpdateFoodType", SQLconn))
             {
-                command.Parameters.Add("FoodTypeID", SqlDbType.Int).Value = FoodTypeID;
-                command.Parameters.Add("FoodType", SqlDbType.VarChar, 100).Value = FoodType;
-                command.Parameters.Add("TypeDescription", SqlDbType.VarChar, 200).Value = TypeDescription;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@IDType", SqlDbType.Int).Value = FoodTypeID;
+                command.Parameters.Add("@TypeFood", SqlDbType.VarChar, 100).Value = FoodType;
+                command.Parameters.Add("@DescType", SqlDbType.VarChar, 200).Value = TypeDescription;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
         }
         public static void DeleteType(SqlConnection SQLconn, int FoodTypeID)
         {
-            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.FoodMenuType" + " WHERE FoodTypeID = @FoodTypeID", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.DeleteFoodType", SQLconn))
             {
-                command.Parameters.Add("FoodTypeID", SqlDbType.Int, 200).Value = FoodTypeID;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@IDStall", SqlDbType.Int, 200).Value = FoodTypeID;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
         }
         public static List<TypeList> GetTypeList(SqlConnection SQLconn)
         {
             List<TypeList> TL = new List<TypeList>();
-            using (SqlCommand command = new SqlCommand("SELECT FoodTypeID, FoodType, TypeDescription FROM dbo.FoodMenuType", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.GetFoodTypeList", SQLconn))
             {
+                command.CommandType = CommandType.StoredProcedure;
                 SQLconn.Open();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -59,6 +63,7 @@ namespace COE182P_T_Practical_07
                     }
                 }
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
             return TL;
         }
     }

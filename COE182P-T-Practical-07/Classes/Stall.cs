@@ -10,10 +10,11 @@ namespace COE182P_T_Practical_07
     {
         public static void AddStall(SqlConnection SQLconn, string StallTypeName, string StallDescription)
         {
-            using (SqlCommand command = new SqlCommand("INSERT INTO dbo.CanteenStalls (StallName, StallDescription) " + "VALUES (@StallName, @StallDescription)", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.AddNewStall", SQLconn))
             {
-                command.Parameters.Add("StallName", SqlDbType.VarChar, 100).Value = StallTypeName;
-                command.Parameters.Add("StallDescription", SqlDbType.VarChar, 200).Value = StallDescription;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@NameStall", SqlDbType.VarChar, 100).Value = StallTypeName;
+                command.Parameters.Add("@DescStall", SqlDbType.VarChar, 200).Value = StallDescription;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
@@ -21,34 +22,36 @@ namespace COE182P_T_Practical_07
 
         public static void UpdateStall(SqlConnection SQLconn, int StallID, string StallTypeName, string StallDescription)
         {
-            using (SqlCommand command = new SqlCommand("UPDATE dbo.CanteenStalls" 
-                + " SET StallName = @StallName," 
-                + " StallDescription = @StallDescription"
-                + " WHERE StallID = @StallID", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.UpdateStall", SQLconn))
             {
-                command.Parameters.Add("StallID", SqlDbType.Int).Value = StallID;
-                command.Parameters.Add("StallName", SqlDbType.VarChar, 100).Value = StallTypeName;
-                command.Parameters.Add("StallDescription", SqlDbType.VarChar, 200).Value = StallDescription;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@IDStall", SqlDbType.Int).Value = StallID;
+                command.Parameters.Add("@NameStall", SqlDbType.VarChar, 100).Value = StallTypeName;
+                command.Parameters.Add("@DescStall", SqlDbType.VarChar, 200).Value = StallDescription;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
         }
 
         public static void DeleteStall(SqlConnection SQLconn, int StallID)
         {
-            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.CanteenStalls" + " WHERE StallID = @StallID", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.DeleteStall", SQLconn))
             {
-                command.Parameters.Add("StallID", SqlDbType.Int).Value = StallID;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@IDStall", SqlDbType.Int).Value = StallID;
                 SQLconn.Open();
                 command.ExecuteNonQuery();
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
         }
 
         public static List<StallList> GetStallList(SqlConnection SQLconn)
         {
             List<StallList> SL = new List<StallList>();
-            using (SqlCommand command = new SqlCommand("SELECT StallID, StallName, StallDescription FROM dbo.CanteenStalls", SQLconn))
+            using (SqlCommand command = new SqlCommand("dbo.GetStallList", SQLconn))
             {
+                command.CommandType = CommandType.StoredProcedure;
                 SQLconn.Open();
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
@@ -62,6 +65,7 @@ namespace COE182P_T_Practical_07
                     }
                 }
             }
+            SQLServerConnection.CloseSQLConnection(SQLconn);
             return SL;
         }
     }
